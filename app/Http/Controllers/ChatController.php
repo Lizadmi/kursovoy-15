@@ -13,16 +13,14 @@ class ChatController extends Controller
 
         // Если пользователь - консультант, то выводим все чаты с его участием
         if ($user->role == 'consultant') {
-            $chats = Chat::with(['user', 'consultant'])
-                ->where('consultant_id', $user->id) // Фильтруем чаты по консультанту
-                ->get();
+            $chats = Chat::all();
         } else {
             // Если пользователь не консультант, выводим только его чаты
             $chats = Chat::with(['user', 'consultant'])
                 ->where('user_id', $user->id) // Фильтруем чаты по пользователю
                 ->get();
         }
-dd($chats);
+// dd($chats);
         return view('chats.index', compact('chats'));
     }
 

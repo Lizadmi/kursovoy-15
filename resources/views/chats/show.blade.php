@@ -30,7 +30,7 @@
     <form action="{{ route('messages.store', $chat->id) }}" method="POST" enctype="multipart/form-data" class="mt-3">
         @csrf
         <div class="mb-3">
-            <textarea name="content" class="form-control" rows="3" placeholder="Введите сообщение..."></textarea>
+            <textarea required name="content" class="form-control" rows="3" placeholder="Введите сообщение..."></textarea>
         </div>
         <div class="mb-3">
             <input type="file" name="photo" class="form-control">
